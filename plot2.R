@@ -19,7 +19,8 @@ colnames(data) <- unlist(header)
 close(con)
 data$DateTime<-as.POSIXct(paste(data$Date,data$Time),format="%d/%m/%Y %H:%M:%S")
 
-# Generate the plot1
-png(filename="plot1.png")
-hist(data$Global_active_power,col="red",main="Global Active Power",xlab="Global Active Power (kilowatts)")
+# Generate the plot2
+png(filename="plot2.png")
+plot(data$Global_active_power, typ='l', ylab="Global Active Power (kilowatts)", xlab="", xaxt='n')
+axis(1, at=c(0,1440,2880),labels=c('Thu','Fri','Sat'))
 dev.off()
